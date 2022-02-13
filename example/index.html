@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bf2js</title>
+    <script src="../bf2js.js"></script>
+    <script>
+        window.onload = () => {
+            document.querySelector("#run").addEventListener("click", () => {
+                let source = document.querySelector("#source").value;
+                document.querySelector("#output").value = bf2js.convert(source);
+            })
+            document.querySelector("#eval").addEventListener("click", () => {
+                eval(document.querySelector("#output").value);
+                document.querySelector("#eoutput").value = bf();
+            })
+        };
+    </script>
+    <style>
+        textarea {
+            width: 100%;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Code:</p>
+    <textarea id="source"></textarea>
+    <br>
+    <button id="run">Run</button>
+    <p>Output:</p>
+    <textarea id="output"></textarea>
+    <br>
+    <button id="eval">Evaluate</button>
+    <p>Eval output:</p>
+    <textarea id="eoutput"></textarea>
+</body>
+
+</html>
